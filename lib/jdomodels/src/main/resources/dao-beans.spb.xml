@@ -86,14 +86,13 @@
 	</util:list>
 
 	<bean id="userGroupDAO"
-		class="org.sagebionetworks.repo.model.dbo.dao.DBOUserGroupDAOImpl" init-method="bootstrapUsers">
+		class="org.sagebionetworks.repo.model.dbo.dao.DBOUserGroupDAOImpl">
 		<property name="bootstrapUsers" ref="bootstrapUsers"/>
 	</bean>
 
 	<bean id="userProfileDAO"
 		class="org.sagebionetworks.repo.model.dbo.dao.DBOUserProfileDAOImpl"
-		depends-on="userGroupDAO" 
-		init-method="bootstrapProfiles" />
+		depends-on="userGroupDAO" />
 	
 	<bean id="groupMembersDAO"
 		class="org.sagebionetworks.repo.model.dbo.dao.DBOGroupMembersDAOImpl" />
@@ -179,7 +178,7 @@
 		<bean id="membershipInvtnSubmissionDAO" class="org.sagebionetworks.repo.model.dbo.dao.DBOMembershipInvtnSubmissionDAOImpl" scope="singleton"/>
 	
 		<bean id="entityBootstrapper"
-		class="org.sagebionetworks.repo.model.bootstrap.EntityBootstrapperImpl" init-method="bootstrapAll">
+		class="org.sagebionetworks.repo.model.bootstrap.EntityBootstrapperImpl">
 		<property name="bootstrapEntities">
 			<list>
 				<ref bean="rootFolderBootstrapData" />
